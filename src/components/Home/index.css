@@ -11,7 +11,7 @@ body {
 .grid-container {
     width: auto;
     text-align: center;
-    margin: 20px 24px 80px 24px;
+    margin: 100px 24px 80px 24px;
 }
 
 .card-header {
@@ -30,6 +30,25 @@ body {
 
 .load-more {
     margin-top: 40px;
+}
+
+.toolbar {
+    background-color: #2196f3;
+}
+
+.toolbar .title {
+
+}
+
+.sortable {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 20px;
+}
+
+.sortable .icon {
+    font-size: 48px;
 }
 
 @media (min-width: 948px) {

@@ -7,7 +7,7 @@ const List = ({pokemon, loadMore}) => {
     const itemList = pokemon.length ? (
         pokemon.map(obj => {
             return (
-                <PokeCard pokemon={obj} />
+                <PokeCard pokemon={obj} key={obj.id} />
             )
         })
     ) : (

@@ -8,7 +8,7 @@ const POKEMON_SPRITE_URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/ma
 
 const PokeCard = ({pokemon}) => {
     return (
-        <Grid item key={pokemon.id} xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} md={3}>
             <Card className="card">
                 <CardHeader
                     title={pokemon.name}
