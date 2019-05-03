@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {getPokemon} from '../../api';
 import _ from 'lodash';
+import update from 'react-addons-update';
 import List from './list';
 import ToolBar from './toolbar';
 
@@ -37,6 +38,14 @@ class Home extends Component {
         })
     }
 
+    toggleFavorite = (obj) => {
+        const index = _.findIndex(this.state.pokemon, {id: obj.id});
+
+        this.setState({
+            pokemon: update(this.state.pokemon, {[index]: {favorite: {$set: !obj.favorite}}})
+        });
+    }
+
     sortData = (dir) => {
         let pokemon = [...this.state.pokemon];
 
@@ -67,6 +76,7 @@ class Home extends Component {
                 <List
                     pokemon={this.state.pokemon}
                     loadMore={this.loadMore}
+                    toggleFavorite={this.toggleFavorite}
                 />
             </div>
         );

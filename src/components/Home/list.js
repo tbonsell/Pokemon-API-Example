@@ -3,11 +3,11 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import PokeCard from './card';
 
-const List = ({pokemon, loadMore}) => {
+const List = ({pokemon, loadMore, toggleFavorite}) => {
     const itemList = pokemon.length ? (
         pokemon.map(obj => {
             return (
-                <PokeCard pokemon={obj} key={obj.id} />
+                <PokeCard pokemon={obj} toggleFavorite={toggleFavorite} key={obj.id} />
             )
         })
     ) : (

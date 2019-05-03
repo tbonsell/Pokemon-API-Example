@@ -23,9 +23,26 @@ body {
     font-size: 1rem;
 }
 
+.card-actions {
+    background-color: #eeeeee;
+    height: 50px;
+}
+
 .image-container {
     padding: 8px;
     text-align: center;
+}
+
+.favorite {
+    opacity: 0.2;
+}
+
+.favorite-button {
+    padding: 4px !important;
+}
+
+.active {
+    opacity: 1;
 }
 
 .load-more {
