@@ -5,35 +5,51 @@ import List from './list';
 class Home extends Component {
 
     state = {
-        pokemon: []
+        pokemon: [],
+        page: 1
     }
 
-    getData = () => {
-        getPokemon().then(res => {
+    getData = (page) => {
+        getPokemon(page).then(res => {
+            // duplicate the array held in the state
+            let pokemon = [...this.state.pokemon];
 
             // map pokemon data
-            const pokemon = res.data.results.map(obj => {
+            const mappedPokemon = res.data.results.map(obj => {
                 obj.id = Number(obj.url.substring(34, obj.url.length - 1));
                 obj.favorite = false;
                 return obj;
             });
 
+            // merge the new data onto the cloned array
+            pokemon.push(...mappedPokemon);
+
             // update the state
             this.setState({
-                pokemon
+                pokemon,
+                page
             });
         })
     }
 
+    loadMore = () => {
+        // load the next grouping of data
+        this.getData(this.state.page + 1);
+    }
+
     componentDidMount() {
-        this.getData();
+        // first load, grab the first grouping of data only
+        this.getData(1);
     }
 
     render() {
         return (
             <div className="home">
                 <h2>Home</h2>
-                <List pokemon={this.state.pokemon} />
+                <List
+                    pokemon={this.state.pokemon}
+                    loadMore={this.loadMore}
+                />
             </div>
         );
     }

@@ -18,6 +18,6 @@ function get(url) {
     return getApi().get(url);
 }
 
-export function getPokemon() {
-    return get(API_POKEMON);
+export function getPokemon(page) {
+    return get(`${API_POKEMON}/?offset=${20 * page - 20}&limit20`);
 }

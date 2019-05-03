@@ -1,6 +1,6 @@
 import React from 'react';
 
-const List = ({pokemon}) => {
+const List = ({pokemon, loadMore}) => {
     const itemList = pokemon.length ? (
         pokemon.map(obj => {
             return (
@@ -17,7 +17,10 @@ const List = ({pokemon}) => {
     );
 
     return (
-        <div>{itemList}</div>
+        <div>
+            {itemList}
+            <button onClick={loadMore}>Load More</button>
+        </div>
     );
 }
 
