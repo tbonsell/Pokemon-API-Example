@@ -68,6 +68,10 @@ body {
     font-size: 48px;
 }
 
+.sortable .label {
+    margin-right: 10px;
+}
+
 @media (min-width: 948px) {
     .grid-container {
         width: 920px;

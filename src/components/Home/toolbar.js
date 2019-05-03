@@ -4,10 +4,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import IconButton from '@material-ui/core/IconButton';
 
 import './index.css';
 
-const ToolBar = ({sortData}) => {
+const ITEM_SPRITE_URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/';
+
+const ToolBar = ({sortData, sortFavorite}) => {
 
     return (
         <AppBar position="fixed">
@@ -16,13 +19,22 @@ const ToolBar = ({sortData}) => {
                     Pokemon API Example
                 </Typography>
                 <div className="sortable">
-                    <Typography variant="body2" color="inherit">
-                        Sort Alphabetically
+                    <Typography variant="body2" color="inherit" className="label">
+                        Sort
                     </Typography>
                     <div className="buttons">
                         <ArrowDropUpIcon className="icon" onClick={() => sortData('asc')} />
                         <ArrowDropDownIcon className="icon" onClick={() => sortData('desc')} />
                     </div>
+                    <IconButton
+                        aria-label="Add to favorites"
+                        className="favorite-button"
+                        onClick={sortFavorite}>
+                        <img
+                            src={`${ITEM_SPRITE_URL}poke-ball.png`}
+                            alt='Sort by favorites'
+                            className='sort-favorites' />
+                    </IconButton>
                 </div>
             </Toolbar>
         </AppBar>
