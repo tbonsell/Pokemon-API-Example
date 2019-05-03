@@ -4,7 +4,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import IconButton from '@material-ui/core/IconButton';
 
 import './index.css';
 
@@ -23,18 +22,14 @@ const ToolBar = ({sortData, sortFavorite}) => {
                         Sort
                     </Typography>
                     <div className="buttons">
-                        <ArrowDropUpIcon className="icon" onClick={() => sortData('asc')} />
-                        <ArrowDropDownIcon className="icon" onClick={() => sortData('desc')} />
+                        <ArrowDropUpIcon className="icon button" onClick={() => sortData('asc')} />
+                        <ArrowDropDownIcon className="icon button" onClick={() => sortData('desc')} />
                     </div>
-                    <IconButton
-                        aria-label="Add to favorites"
-                        className="favorite-button"
-                        onClick={sortFavorite}>
-                        <img
-                            src={`${ITEM_SPRITE_URL}poke-ball.png`}
-                            alt='Sort by favorites'
-                            className='sort-favorites' />
-                    </IconButton>
+                    <img
+                        src={`${ITEM_SPRITE_URL}poke-ball.png`}
+                        alt='Sort by favorites'
+                        className='sort-favorites button'
+                        onClick={sortFavorite}/>
                 </div>
             </Toolbar>
         </AppBar>

@@ -11,7 +11,8 @@ class Home extends Component {
     state = {
         pokemon: [],
         favorites: [],
-        page: 1
+        page: 1,
+        sortFavorite: false
     }
 
     getData = (page) => {
@@ -51,22 +52,24 @@ class Home extends Component {
     }
 
     sortFavorite = () => {
-        const pokemon = [...this.state.favorites];
-        const favorites = [...this.state.pokemon];
-
         this.setState({
-            pokemon,
-            favorites
+            sortFavorite: !this.state.sortFavorite
         });
     }
 
     sortData = (dir) => {
         let pokemon = [...this.state.pokemon];
+        let favorites = [...this.state.favorites];
 
-        pokemon = _.orderBy(pokemon, ['name'], [dir]);
+        if(this.state.sortFavorite) {
+            favorites = _.orderBy(favorites, ['name'], [dir]);
+        } else {
+            pokemon = _.orderBy(pokemon, ['name'], [dir]);
+        }
 
         this.setState({
-            pokemon
+            pokemon,
+            favorites
         });
     }
 
@@ -84,12 +87,11 @@ class Home extends Component {
         return (
             <div className="home">
                 <ToolBar
-                    pokemon={this.state.pokemon}
                     sortData={this.sortData}
                     sortFavorite={this.sortFavorite}
                 />
                 <List
-                    pokemon={this.state.pokemon}
+                    pokemon={this.state.sortFavorite ? this.state.favorites : this.state.pokemon}
                     loadMore={this.loadMore}
                     toggleFavorite={this.toggleFavorite}
                 />

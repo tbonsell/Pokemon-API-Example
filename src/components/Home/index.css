@@ -37,10 +37,6 @@ body {
     opacity: 0.2;
 }
 
-.favorite-button {
-    padding: 4px !important;
-}
-
 .active {
     opacity: 1;
 }
@@ -53,8 +49,8 @@ body {
     background-color: #2196f3;
 }
 
-.toolbar .title {
-
+.toolbar .button {
+    cursor: pointer;
 }
 
 .sortable {
@@ -70,6 +66,12 @@ body {
 
 .sortable .label {
     margin-right: 10px;
+}
+
+.empty-list {
+    width: 100%;
+    margin: 100px 0;
+    text-align: center;
 }
 
 @media (min-width: 948px) {

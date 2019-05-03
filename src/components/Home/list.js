@@ -11,8 +11,8 @@ const List = ({pokemon, loadMore, toggleFavorite}) => {
             )
         })
     ) : (
-        <div className="collection-item">
-            <span>Loading</span>
+        <div className="empty-list">
+            <h2>Nothing to show</h2>
         </div>
     );
 
