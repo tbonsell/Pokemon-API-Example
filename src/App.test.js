@@ -28,12 +28,6 @@ it('Home renders without crashing', () => {
     ReactDOM.unmountComponentAtNode(div);
 });
 
-it('Error renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Error />, div);
-    ReactDOM.unmountComponentAtNode(div);
-});
-
 it('api successfully pulls single data item', () => {
     getEndpoint('https://pokeapi.co/api/v2/pokemon/?limit=1')
         .then(res => {
