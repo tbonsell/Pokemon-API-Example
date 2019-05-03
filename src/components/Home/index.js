@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {getPokemon} from '../../api';
 import List from './list';
 
+import './index.css';
+
 class Home extends Component {
 
     state = {

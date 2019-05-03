@@ -1,25 +1,31 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import PokeCard from './card';
 
 const List = ({pokemon, loadMore}) => {
     const itemList = pokemon.length ? (
         pokemon.map(obj => {
             return (
-                <div key={obj.id}>
-                    Name: {obj.name} | ID: {obj.id} | Favorite: {obj.favorite}
-                    URL: {obj.url}
-                </div>
+                <PokeCard pokemon={obj} />
             )
         })
     ) : (
         <div className="collection-item">
-            <span>Empty</span>
+            <span>Loading</span>
         </div>
     );
 
     return (
-        <div>
-            {itemList}
-            <button onClick={loadMore}>Load More</button>
+        <div className="grid-container">
+            <Grid container spacing={40} alignItems="flex-end">
+                {itemList}
+                <Grid item xs={12}>
+                    <Button variant="contained" className="load-more" onClick={loadMore}>
+                        Load More
+                    </Button>
+                </Grid>
+            </Grid>
         </div>
     );
 }
